@@ -10,6 +10,7 @@
     <description>PLG_SYSTEM_KS_META_XML_DESCRIPTION</description>
     <files>
         <filename plugin="ksmeta">ksmeta.php</filename>
+        <filename>index.html</filename>
         <folder>language</folder>
     </files>
     <languages folder="language">
@@ -44,4 +45,7 @@
             </fieldset>
         </fields>
     </config>
+    <updateservers>
+        <server type="extension" priority="1" name="KS Open Graph Content Plugin">https://raw.githubusercontent.com/mediafoks/plg_sys_ksmeta/main/update.xml</server>
+    </updateservers>
 </extension>
