@@ -6,7 +6,7 @@
     <copyright>Copyright (C) 2024 Sergey Kuznetsov</copyright>
     <license>MIT</license>
     <authorEmail>mediafoks@google.com</authorEmail>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <description>PLG_SYSTEM_KS_META_XML_DESCRIPTION</description>
     <files>
         <filename plugin="ksmeta">ksmeta.php</filename>
@@ -37,6 +37,10 @@
                 <field name="category" type="subform" multiple="true">
                     <form>
                         <field name="catid" type="category" label="JCATEGORY" extension="com_content" multiple="true" filter="intarray" class="multipleCategories" layout="joomla.form.field.list-fancy-select" />
+                        <field type="radio" name="subcategories" label="PLG_SYSTEM_KS_META_SUBCATEGORIES" default="0" class="btn-group btn-group-yesno">
+                            <option value="1">JYES</option>
+                            <option value="0">JNO</option>
+                        </field>
                         <field name="titleprefix" type="text" label="PLG_SYSTEM_KS_META_TITLE_PREFIX" description="PLG_SYSTEM_KS_META_TITLE_PREFIX_DESC" />
                         <field name="titlesuffix" type="text" label="PLG_SYSTEM_KS_META_TITLE_SUFFIX" description="PLG_SYSTEM_KS_META_TITLE_SUFFIX_DESC" />
                         <field name="description" type="text" label="PLG_SYSTEM_KS_META_DESC_SUFFIX" description="PLG_SYSTEM_KS_META_DESC_SUFFIX_DESC" />
