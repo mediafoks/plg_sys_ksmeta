@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version    1.0.4
+ * @version    1.0.5
  * @package    ksmeta (plugin)
  * @author     Sergey Kuznetsov - mediafoks@google.com
  * @copyright  Copyright (c) 2024 Sergey Kuznetsov
@@ -86,10 +86,28 @@ class PlgSystemKsMeta extends CMSPlugin implements SubscriberInterface
                 ->getMVCFactory()
                 ->createModel('Category', 'Site', ['ignore_request' => false]);
             $category = $model->getCategory();
-            $parent_category_id = $category->get('_parent')->id;
+            $category_id = $category->id;
 
             foreach ($categoryParams as $item) {
-                if (isset($item->catid) && in_array($parent_category_id, $item->catid)) {
+                if (isset($item->catid) && (int) $item->subcategories == 1) { // Если включены все дочерние категории
+                    $categories = $app->bootComponent('com_content')
+                        ->getMVCFactory()
+                        ->createModel('Categories', 'Site', ['ignore_request' => true]);
+
+                    foreach ($item->catid as $catid) {
+                        $categories->setState('filter.parentId', $catid);
+
+                        $items = $categories->getItems(true);
+                        $additional_catids = [];
+
+                        foreach ($items as $category) $additional_catids[] = $category->id;
+
+                        if (in_array($category_id, $additional_catids)) {
+                            $this->renderMeta($item);
+                        }
+                    }
+                }
+                if (isset($item->catid) && (int) $item->subcategories != 1 && in_array($category_id, $item->catid)) {
                     $this->renderMeta($item);
                 }
             }
