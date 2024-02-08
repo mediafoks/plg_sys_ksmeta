@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version    1.0.3
+ * @version    1.0.4
  * @package    ksmeta (plugin)
  * @author     Sergey Kuznetsov - mediafoks@google.com
  * @copyright  Copyright (c) 2024 Sergey Kuznetsov
@@ -43,9 +43,7 @@ class PlgSystemKsMeta extends CMSPlugin implements SubscriberInterface
     {
         $app = Factory::getApplication();
 
-        if (!$app->isClient('site')) { // если это не фронтэнд, то прекращаем работу
-            return;
-        }
+        if (!$app->isClient('site')) return; // если это не фронтэнд, то прекращаем работу
 
         $view = $app->input->get('view');
 
@@ -53,21 +51,33 @@ class PlgSystemKsMeta extends CMSPlugin implements SubscriberInterface
         $categoryParams = $this->params->get('category');
 
         if ($view == 'article' && !empty($articleParams)) {
-            $article_id = $app->getInput()->get('id');
-
             $model = $app->bootComponent('com_content')
                 ->getMVCFactory()
                 ->createModel('Article', 'Site', ['ignore_request' => false]);
-            $article = $model->getItem((int) $article_id);
-            $current_category_id = $article->catid;
-            $parent_current_category_id = $article->parent_id;
+            $article_id = $app->getInput()->get('id'); // ID текущего материала
+            $article = $model->getItem((int) $article_id); // Материал
+            $current_category_id = $article->catid; // ID категории материала
 
             foreach ($articleParams as $item) {
+                if (isset($item->catid) && (int) $item->subcategories == 1) { // Если включены все дочерние категории
+                    $categories = $app->bootComponent('com_content')
+                        ->getMVCFactory()
+                        ->createModel('Categories', 'Site', ['ignore_request' => true]);
 
-                if (isset($item->catid) && intval($item->subcategories) == 1 && in_array($parent_current_category_id, $item->catid)) {
-                    $this->renderMeta($item);
+                    foreach ($item->catid as $catid) {
+                        $categories->setState('filter.parentId', $catid);
+
+                        $items = $categories->getItems(true);
+                        $additional_catids = [];
+
+                        foreach ($items as $category) $additional_catids[] = $category->id;
+
+                        if (in_array($current_category_id, $additional_catids)) {
+                            $this->renderMeta($item);
+                        }
+                    }
                 }
-                if (isset($item->catid) && in_array($current_category_id, $item->catid)) {
+                if (isset($item->catid) && (int) $item->subcategories != 1 && in_array($current_category_id, $item->catid)) {
                     $this->renderMeta($item);
                 }
             }
