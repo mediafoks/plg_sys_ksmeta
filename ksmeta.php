@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version    1.0.2
+ * @version    1.0.3
  * @package    ksmeta (plugin)
  * @author     Sergey Kuznetsov - mediafoks@google.com
  * @copyright  Copyright (c) 2024 Sergey Kuznetsov
@@ -53,16 +53,18 @@ class PlgSystemKsMeta extends CMSPlugin implements SubscriberInterface
         $categoryParams = $this->params->get('category');
 
         if ($view == 'article' && !empty($articleParams)) {
+            $article_id = $app->getInput()->get('id');
+
             $model = $app->bootComponent('com_content')
                 ->getMVCFactory()
                 ->createModel('Article', 'Site', ['ignore_request' => false]);
-            $article = $model->getItem($id);
+            $article = $model->getItem((int) $article_id);
             $current_category_id = $article->catid;
-            $current_parent_category_id = $article->parent_id;
+            $parent_current_category_id = $article->parent_id;
 
             foreach ($articleParams as $item) {
 
-                if (isset($item->catid) && intval($item->subcategories) == 1 && in_array($current_parent_category_id, $item->catid)) {
+                if (isset($item->catid) && intval($item->subcategories) == 1 && in_array($parent_current_category_id, $item->catid)) {
                     $this->renderMeta($item);
                 }
                 if (isset($item->catid) && in_array($current_category_id, $item->catid)) {

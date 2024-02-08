@@ -6,7 +6,7 @@
     <copyright>Copyright (C) 2024 Sergey Kuznetsov</copyright>
     <license>MIT</license>
     <authorEmail>mediafoks@google.com</authorEmail>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <description>PLG_SYSTEM_KS_META_XML_DESCRIPTION</description>
     <files>
         <filename plugin="ksmeta">ksmeta.php</filename>
