@@ -8,7 +8,7 @@
  * @license    GNU/GPL license: https://www.gnu.org/copyleft/gpl.html
  */
 
-namespace Joomla\Plugin\Content\KsMeta\Extension;
+namespace Joomla\Plugin\System\KsMeta\Extension;
 //kill direct access
 \defined('_JEXEC') || die;
 
