@@ -6,18 +6,19 @@
     <copyright>Copyright (C) 2024 Sergey Kuznetsov</copyright>
     <license>MIT</license>
     <authorEmail>mediafoks@google.com</authorEmail>
-    <version>1.0.7</version>
+    <version>1.1.0</version>
     <description>PLG_SYSTEM_KS_META_XML_DESCRIPTION</description>
+    <namespace path="src">Joomla\Plugin\Content\KsMeta</namespace>
     <files>
-        <filename plugin="ksmeta">ksmeta.php</filename>
-        <filename>index.html</filename>
+        <folder plugin="ksmeta">services</folder>
+        <folder>src</folder>
         <folder>language</folder>
     </files>
     <languages folder="language">
-        <language tag="en-GB">en-GB/en-GB.plg_system_ksmeta.sys.ini</language>
-        <language tag="en-GB">en-GB/en-GB.plg_system_ksmeta.ini</language>
-        <language tag="ru-RU">ru-RU/ru-RU.plg_system_ksmeta.sys.ini</language>
-        <language tag="ru-RU">ru-RU/ru-RU.plg_system_ksmeta.ini</language>
+        <language tag="en-GB">en-GB/plg_system_ksmeta.sys.ini</language>
+        <language tag="en-GB">en-GB/plg_system_ksmeta.ini</language>
+        <language tag="ru-RU">ru-RU/plg_system_ksmeta.sys.ini</language>
+        <language tag="ru-RU">ru-RU/plg_system_ksmeta.ini</language>
     </languages>
     <config>
         <fields name="params">

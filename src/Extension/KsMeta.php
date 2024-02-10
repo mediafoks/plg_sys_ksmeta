@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @version    1.0.7
+ * @version    1.1.0
  * @package    ksmeta (plugin)
  * @author     Sergey Kuznetsov - mediafoks@google.com
  * @copyright  Copyright (c) 2024 Sergey Kuznetsov
  * @license    GNU/GPL license: https://www.gnu.org/copyleft/gpl.html
  */
 
+namespace Joomla\Plugin\Content\KsMeta\Extension;
 //kill direct access
-defined('_JEXEC') || die;
+\defined('_JEXEC') || die;
 
 use Joomla\CMS\Plugin\CMSPlugin;
-use Joomla\CMS\Factory;
 use Joomla\Event\SubscriberInterface;
 
-class PlgSystemKsMeta extends CMSPlugin implements SubscriberInterface
+final class KsMeta extends CMSPlugin implements SubscriberInterface
 {
     protected $autoloadLanguage = true;
     protected $allowLegacyListeners = false;
@@ -29,7 +29,8 @@ class PlgSystemKsMeta extends CMSPlugin implements SubscriberInterface
 
     public function renderMeta($item): void
     {
-        $doc = Factory::getDocument();
+        $app = $this->getApplication();
+        $doc = $app->getDocument();
         $head = $doc->getHeadData();
 
         !empty($item->titleprefix) ? $head['title'] = $item->titleprefix . $head['title'] : $head['title'] = $head['title'];
@@ -41,7 +42,7 @@ class PlgSystemKsMeta extends CMSPlugin implements SubscriberInterface
 
     public function onBeforeCompileHead(): void
     {
-        $app = Factory::getApplication();
+        $app = $this->getApplication();
 
         if (!$app->isClient('site')) return; // если это не фронтэнд, то прекращаем работу
 
