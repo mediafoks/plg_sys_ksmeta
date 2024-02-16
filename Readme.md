@@ -1,4 +1,4 @@
-[![Version](https://badgen.net//github/release/mediafoks/plg_sys_ksmeta/stable)]()[![JoomlaVersion](https://badgen.net/badge/Joomla/5.0/green?icon=joomla)]
+!\[Version\](https://badgen.net//github/release/mediafoks/plg_sys_ksmeta/stable)()!\[JoomlaVersion\](https://badgen.net/badge/Joomla/5.0/green?icon=joomla)
 
 # KS Meta Tags
 
