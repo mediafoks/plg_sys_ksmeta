@@ -1,4 +1,4 @@
-[![Version](https://flat.badgen.net//github/release/mediafoks/plg_sys_ksmeta/stable?color=green)]() [![JoomlaVersion](https://flat.badgen.net/badge/Joomla/5.0/orange)]() [![Version](https://flat.badgen.net//github/assets-dl/mediafoks/plg_sys_ksmeta)]()
+[![Version](https://flat.badgen.net//github/release/mediafoks/plg_sys_ksmeta/stable?color=blue)]() [![JoomlaVersion](https://flat.badgen.net/badge/Joomla/5.0/orange)]()
 
 # KS Meta Tags
 
