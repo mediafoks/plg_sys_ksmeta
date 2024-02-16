@@ -1,4 +1,4 @@
-[![Version](https://badgen.net//github/release/plg_sys_ksmeta/mediafoks/stable)](https://web-tolk.ru/dev/joomla-plugins/wt-content-like.html?utm_source=github) [![Status](https://img.shields.io/badge/Status-stable-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.0-orange.svg)]() [![DocumentationRus](https://img.shields.io/badge/Documentation-rus-blue.svg)](https://web-tolk.ru/dev/joomla-plugins/wt-content-like.html?utm_source=github)
+[![Version](https://badgen.net//github/release/mediafoks/plg_sys_ksmeta/stable)](https://web-tolk.ru/dev/joomla-plugins/wt-content-like.html?utm_source=github) [![Status](https://img.shields.io/badge/Status-stable-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.0-orange.svg)]() [![DocumentationRus](https://img.shields.io/badge/Documentation-rus-blue.svg)](https://web-tolk.ru/dev/joomla-plugins/wt-content-like.html?utm_source=github)
 
 # KS Meta Tags
 
