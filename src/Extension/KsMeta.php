@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version    1.1.3
+ * @version    1.2.0
  * @package    ksmeta (plugin)
  * @author     Sergey Kuznetsov - mediafoks@google.com
  * @copyright  Copyright (c) 2024 Sergey Kuznetsov
@@ -33,9 +33,15 @@ final class KsMeta extends CMSPlugin implements SubscriberInterface
         $doc = $app->getDocument();
         $head = $doc->getHeadData();
 
-        !empty($item->titleprefix) ? $head['title'] = $item->titleprefix . $head['title'] : $head['title'] = $head['title'];
-        !empty($item->titlesuffix) ? $head['title'] = $head['title'] . $item->titlesuffix : $head['title'] = $head['title'];
-        !empty($item->description) && !is_null($head['description']) ? $head['description'] = $head['description'] . $item->description : $head['description'] = $head['description'];
+        isset($item->titleprefix) && !empty($item->titleprefix)
+            ? $head['title'] = $item->titleprefix . $head['title']
+            : $head['title'] = $head['title'];
+        isset($item->titlesuffix) && !empty($item->titlesuffix)
+            ? $head['title'] = $head['title'] . $item->titlesuffix
+            : $head['title'] = $head['title'];
+        isset($item->description) && !empty($item->description) && !is_null($head['description'])
+            ? $head['description'] = $head['description'] . $item->description
+            : $head['description'] = $head['description'];
 
         $doc->setHeadData($head);
     }
@@ -50,6 +56,7 @@ final class KsMeta extends CMSPlugin implements SubscriberInterface
 
         $articleParams = $this->params->get('article');
         $categoryParams = $this->params->get('category');
+        $contactParams = $this->params->get('contact');
 
         if ($view == 'article' && !empty($articleParams)) {
             $model = $app->bootComponent('com_content')
@@ -109,6 +116,19 @@ final class KsMeta extends CMSPlugin implements SubscriberInterface
                     }
                 }
                 if (isset($item->catid) && (int) $item->subcategories != 1 && in_array($category_id, $item->catid)) {
+                    $this->renderMeta($item);
+                }
+            }
+        } elseif ($view == 'contact') {
+            $model = $app->bootComponent('com_contact')
+                ->getMVCFactory()
+                ->createModel('Contact', 'Site', ['ignore_request' => false]);
+            $conract_id = $app->getInput()->get('id'); // ID текущего контакта
+            $conract = $model->getItem((int) $conract_id); // Контакт
+            $current_category_id = $conract->catid; // ID категории контакта
+
+            foreach ($contactParams as $item) {
+                if (isset($item->catid) && in_array($current_category_id, $item->catid)) {
                     $this->renderMeta($item);
                 }
             }
