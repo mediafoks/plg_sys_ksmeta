@@ -1,4 +1,5 @@
-[![Version](https://flat.badgen.net//github/release/mediafoks/plg_sys_ksmeta/stable?color=blue)]() [![JoomlaVersion](https://flat.badgen.net/badge/Joomla/5.0/orange)]() [![Type](https://flat.badgen.net/badge/type/plugin/yellow)]() [![Group](https://flat.badgen.net/badge/group/system/gray)]()
+![GitHub Release](https://img.shields.io/github/v/release/mediafoks/plg_sys_ksmeta?display_name=release&style=flat-square&color=blue&link=https%3A%2F%2Fgithub.com%2Fmediafoks%2Fplg_sys_ksmeta%2Freleases)
+![Static Badge](https://img.shields.io/badge/Joomla-5-orange?style=flat-square&logo=joomla&logoColor=white&link=https%3A%2F%2Fgithub.com%2Fjoomla%2Fjoomla-cms) ![Static Badge](https://img.shields.io/badge/type-plugin-yellow?style=flat-square) ![Static Badge](https://img.shields.io/badge/group-system-violet?style=flat-square)
 
 # KS Meta Tags
 
