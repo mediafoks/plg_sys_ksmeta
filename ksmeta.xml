@@ -6,7 +6,7 @@
     <copyright>Copyright (C) 2024 Sergey Kuznetsov</copyright>
     <license>MIT</license>
     <authorEmail>mediafoks@google.com</authorEmail>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
     <description>PLG_SYSTEM_KS_META_XML_DESCRIPTION</description>
     <namespace path="src">Joomla\Plugin\System\KsMeta</namespace>
     <files>
@@ -50,10 +50,20 @@
                     </form>
                 </field>
             </fieldset>
+            <fieldset name="tag-fields" label="PLG_SYSTEM_KS_META_TAG_OPTIONS">
+                <field name="tag" type="subform" multiple="true">
+                    <form>
+                        <field name="parentTag" type="tag" label="MOD_TAGS_POPULAR_PARENT_TAG_LABEL" description="MOD_TAGS_POPULAR_PARENT_TAG_DESC" multiple="true" filter="intarray" mode="nested" />
+                        <field name="titleprefix" type="text" label="PLG_SYSTEM_KS_META_TITLE_PREFIX" description="PLG_SYSTEM_KS_META_TITLE_PREFIX_DESC" />
+                        <field name="titlesuffix" type="text" label="PLG_SYSTEM_KS_META_TITLE_SUFFIX" description="PLG_SYSTEM_KS_META_TITLE_SUFFIX_DESC" />
+                        <field name="description" type="text" label="PLG_SYSTEM_KS_META_DESC_SUFFIX" description="PLG_SYSTEM_KS_META_DESC_SUFFIX_DESC" />
+                    </form>
+                </field>
+            </fieldset>
             <fieldset name="contact-fields" label="PLG_SYSTEM_KS_META_CONTACT_OPTIONS">
                 <field name="contact" type="subform" multiple="true">
                     <form>
-                        <field name="catid" type="category" label="JCATEGORY" extension="com_contact" multiple="true" filter="intarray" class="multipleCategories" layout="joomla.form.field.list-fancy-select" />
+                        <field name="catid" type="category" label="JCATEGORY" extension="com_tags" multiple="true" filter="intarray" class="multipleCategories" layout="joomla.form.field.list-fancy-select" />
                         <field name="titleprefix" type="text" label="PLG_SYSTEM_KS_META_TITLE_PREFIX" description="PLG_SYSTEM_KS_META_TITLE_PREFIX_DESC" />
                         <field name="titlesuffix" type="text" label="PLG_SYSTEM_KS_META_TITLE_SUFFIX" description="PLG_SYSTEM_KS_META_TITLE_SUFFIX_DESC" />
                     </form>

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version    1.2.1
+ * @version    1.3.0
  * @package    ksmeta (plugin)
  * @author     Sergey Kuznetsov - mediafoks@google.com
  * @copyright  Copyright (c) 2024 Sergey Kuznetsov
@@ -56,6 +56,7 @@ final class KsMeta extends CMSPlugin implements SubscriberInterface
 
         $articleParams = $this->params->get('article');
         $categoryParams = $this->params->get('category');
+        $tagParams = $this->params->get('tag');
         $contactParams = $this->params->get('contact');
 
         if ($view == 'article' && !empty($articleParams)) {
@@ -117,6 +118,20 @@ final class KsMeta extends CMSPlugin implements SubscriberInterface
                 }
                 if (isset($item->catid) && (int) $item->subcategories != 1 && in_array($category_id, $item->catid)) {
                     $this->renderMeta($item);
+                }
+            }
+        } elseif ($view == 'tag' && !empty($tagParams)) {
+            $model = $app->bootComponent('com_tags')
+                ->getMVCFactory()
+                ->createModel('Tag', 'Site', ['ignore_request' => false]);
+            $tag_id = $app->getInput()->get('id')[0]; // ID текущего тега
+            $tag = $model->getItem((int) $tag_id)[0]; // Тег
+
+            foreach ($tagParams as $item) {
+                if (isset($item->parentTag)) {
+                    if (in_array($tag_id, $item->parentTag) || in_array($tag->parent_id, $item->parentTag)) {
+                        $this->renderMeta($item);
+                    }
                 }
             }
         } elseif ($view == 'contact') {
