@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version    1.3.1
+ * @version    1.4.0
  * @package    ksmeta (plugin)
  * @author     Sergey Kuznetsov - mediafoks@google.com
  * @copyright  Copyright (c) 2024 Sergey Kuznetsov
