@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version    1.4.0
+ * @version    1.5.0
  * @package    ksmeta (plugin)
  * @author     Sergey Kuznetsov - mediafoks@google.com
  * @copyright  Copyright (c) 2024 Sergey Kuznetsov
@@ -39,6 +39,9 @@ final class KsMeta extends CMSPlugin implements SubscriberInterface
         isset($item->titlesuffix) && !empty($item->titlesuffix)
             ? $head['title'] = $head['title'] . $item->titlesuffix
             : $head['title'] = $head['title'];
+        isset($item->descriptionprefix) && !empty($item->descriptionprefix) && !is_null($head['description'])
+            ? $head['description'] = $item->descriptionprefix . $head['description']
+            : $head['description'] = $head['description'];
         isset($item->description) && !empty($item->description) && !is_null($head['description'])
             ? $head['description'] = $head['description'] . $item->description
             : $head['description'] = $head['description'];

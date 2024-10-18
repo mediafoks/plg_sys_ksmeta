@@ -6,7 +6,7 @@
     <copyright>Copyright (C) 2024 Sergey Kuznetsov</copyright>
     <license>MIT</license>
     <authorEmail>mediafoks@google.com</authorEmail>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
     <description>PLG_SYSTEM_KS_META_XML_DESCRIPTION</description>
     <namespace path="src">Joomla\Plugin\System\KsMeta</namespace>
     <files>
@@ -32,6 +32,7 @@
                         </field>
                         <field name="titleprefix" type="text" label="PLG_SYSTEM_KS_META_TITLE_PREFIX" description="PLG_SYSTEM_KS_META_TITLE_PREFIX_DESC" />
                         <field name="titlesuffix" type="text" label="PLG_SYSTEM_KS_META_TITLE_SUFFIX" description="PLG_SYSTEM_KS_META_TITLE_SUFFIX_DESC" />
+                        <field name="descriptionprefix" type="text" label="PLG_SYSTEM_KS_META_DESC_PREFIX" description="PLG_SYSTEM_KS_META_DESC_PREFIX_DESC" />
                         <field name="description" type="text" label="PLG_SYSTEM_KS_META_DESC_SUFFIX" description="PLG_SYSTEM_KS_META_DESC_SUFFIX_DESC" />
                     </form>
                 </field>
@@ -46,6 +47,7 @@
                         </field>
                         <field name="titleprefix" type="text" label="PLG_SYSTEM_KS_META_TITLE_PREFIX" description="PLG_SYSTEM_KS_META_TITLE_PREFIX_DESC" />
                         <field name="titlesuffix" type="text" label="PLG_SYSTEM_KS_META_TITLE_SUFFIX" description="PLG_SYSTEM_KS_META_TITLE_SUFFIX_DESC" />
+                        <field name="descriptionprefix" type="text" label="PLG_SYSTEM_KS_META_DESC_PREFIX" description="PLG_SYSTEM_KS_META_DESC_PREFIX_DESC" />
                         <field name="description" type="text" label="PLG_SYSTEM_KS_META_DESC_SUFFIX" description="PLG_SYSTEM_KS_META_DESC_SUFFIX_DESC" />
                     </form>
                 </field>
@@ -56,6 +58,7 @@
                         <field name="parentTag" type="tag" label="PLG_SYSTEM_KS_META_PARENT_TAG_LABEL" description="PLG_SYSTEM_KS_META_PARENT_TAG_DESC" multiple="true" filter="intarray" mode="nested" />
                         <field name="titleprefix" type="text" label="PLG_SYSTEM_KS_META_TITLE_PREFIX" description="PLG_SYSTEM_KS_META_TITLE_PREFIX_DESC" />
                         <field name="titlesuffix" type="text" label="PLG_SYSTEM_KS_META_TITLE_SUFFIX" description="PLG_SYSTEM_KS_META_TITLE_SUFFIX_DESC" />
+                        <field name="descriptionprefix" type="text" label="PLG_SYSTEM_KS_META_DESC_PREFIX" description="PLG_SYSTEM_KS_META_DESC_PREFIX_DESC" />
                         <field name="description" type="text" label="PLG_SYSTEM_KS_META_DESC_SUFFIX" description="PLG_SYSTEM_KS_META_DESC_SUFFIX_DESC" />
                     </form>
                 </field>
